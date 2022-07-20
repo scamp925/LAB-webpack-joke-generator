@@ -3,7 +3,7 @@ import '../styles/main.scss';
 import jokeData from '../api/jokeData';
 
 const init = () => {
-  let btnText = 'Get A Joke';
+  const btnText = 'Get A Joke';
 
   document.querySelector('#app').innerHTML = `<div>
   <h1 id='setup'></h1>
@@ -14,13 +14,13 @@ const init = () => {
 
   document.querySelector('#jokeBtn').addEventListener('click', () => {
     jokeData().then((response) => {
-      if (btnText === 'Get A Joke' || btnText === 'Get Another Joke') {
+      if (document.querySelector('#jokeBtn').innerText === 'Get A Joke' || document.querySelector('#jokeBtn').innerText === 'Get Another Joke') {
         document.querySelector('#setup').innerHTML = response.setup;
         document.querySelector('#delivery').innerHTML = '';
-        btnText = 'Get The Punchline';
-      } else if (btnText === 'Get The Punchline') {
+        document.querySelector('#jokeBtn').textContent = 'Get The Punchline';
+      } else if (document.querySelector('#jokeBtn').innerText === 'Get The Punchline') {
         document.querySelector('#delivery').innerHTML = response.delivery;
-        btnText = 'Get Another Joke';
+        document.querySelector('#jokeBtn').textContent = 'Get Another Joke';
       }
     });
   });
