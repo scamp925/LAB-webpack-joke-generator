@@ -17,8 +17,8 @@ const init = () => {
       if (btnText === 'Get A Joke' || btnText === 'Get Another Joke') {
         document.querySelector('#setup').innerHTML = response.setup;
         document.querySelector('#delivery').innerHTML = '';
-        btnText = 'Get A Punchline';
-      } else if (btnText === 'Get A Punchline') {
+        btnText = 'Get The Punchline';
+      } else if (btnText === 'Get The Punchline') {
         document.querySelector('#delivery').innerHTML = response.delivery;
         btnText = 'Get Another Joke';
       }
